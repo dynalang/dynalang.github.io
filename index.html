@@ -109,54 +109,96 @@
         <source id="mp4" src="data/videos/teaser.mp4" type="video/mp4">
       </video>
 
-      <h2 class="section-header">Overview</h2>
-      <div class="paragraph">
-        <p>
-        To interact with humans in the world, agents need to understand the diverse types of language that people use, relate them to the visual world, and act based on them. While current agents learn to execute simple language instructions from task rewards, we aim to build agents that leverage diverse language that conveys general knowledge, describes the state of the world, provides interactive feedback, and more. Our key idea is that language helps agents predict the future: what will be observed, how the world will behave, and which situations will be rewarded. This perspective unifies language understanding with future prediction as a powerful self-supervised learning objective. We present Dynalang, an agent that learns a multimodal world model that predicts future text and image representations and learns to act from imagined model rollouts. Unlike traditional agents that use language only to predict actions, Dynalang acquires rich language understanding by using past language also to predict future language, video, and rewards. In addition to learning from online interaction in an environment, Dynalang can be pretrained on datasets of text, video, or both without actions or rewards. From using language hints in grid worlds to navigating photorealistic scans of homes, Dynalang utilizes diverse types of language to improve task performance, including environment descriptions, game rules, and instructions.
-        </p>
-      </div>
-
-      <h2 class="section-header">How it works</h2>
-      <div>
-        <img class="wide-img" src="static/images/model.png" alt="Dynalang Model Architecture">
-        <div class="paragraph" style="text-align: center">
-          Example updates to the training dataset images over time. Notice that the edits are gradually becoming more
-          consistent.
-        </div>
+      <div id="content">
+        <h2 class="section-header">Overview</h2>
         <div class="paragraph">
           <p>
-            Our method gradually updates a reconstructed NeRF scene by iteratively updating the dataset images while
-            training the NeRF:
-          <ol>
-            <li>An image is rendered from the scene at a training viewpoint.</li>
-            <li>It is edited by InstructPix2Pix given a global text instruction.</li>
-            <li>The training dataset image is replaced with the edited image.</li>
-            <li>The NeRF continues training as usual.</li>
-          </ol>
+          To interact with humans in the world, agents need to understand the diverse types of language that people use, relate them to the visual world, and act based on them. While current agents learn to execute simple language instructions from task rewards, we aim to build agents that leverage diverse language that conveys general knowledge, describes the state of the world, provides interactive feedback, and more. Our key idea is that language helps agents predict the future: what will be observed, how the world will behave, and which situations will be rewarded. This perspective unifies language understanding with future prediction as a powerful self-supervised learning objective. We present Dynalang, an agent that learns a multimodal world model that predicts future text and image representations and learns to act from imagined model rollouts. Unlike traditional agents that use language only to predict actions, Dynalang acquires rich language understanding by using past language also to predict future language, video, and rewards. In addition to learning from online interaction in an environment, Dynalang can be pretrained on datasets of text, video, or both without actions or rewards. From using language hints in grid worlds to navigating photorealistic scans of homes, Dynalang utilizes diverse types of language to improve task performance, including environment descriptions, game rules, and instructions.
           </p>
         </div>
-      </div>
 
-      <h2 class="section-header">HomeGrid: Language Hints</h2>
-      <img class="wide-img" src="static/images/homegrid_bars.png" alt="HomeGrid Results">
+        <h2 class="section-header">How It Works</h2>
+        <div>
+          <img class="wide-img" src="static/images/model.png" alt="Dynalang Model Architecture">
+          <div class="paragraph" style="text-align: center">
+            Example updates to the training dataset images over time. Notice that the edits are gradually becoming more
+            consistent.
+          </div>
+          <div class="paragraph">
+            <p>
+              Our method gradually updates a reconstructed NeRF scene by iteratively updating the dataset images while
+              training the NeRF:
+            <ol>
+              <li>An image is rendered from the scene at a training viewpoint.</li>
+              <li>It is edited by InstructPix2Pix given a global text instruction.</li>
+              <li>The training dataset image is replaced with the edited image.</li>
+              <li>The NeRF continues training as usual.</li>
+            </ol>
+            </p>
+          </div>
+        </div>
 
-      <h2 class="section-header">Messenger: Game Manuals</h2>
-      <img class="wide-img" src="static/images/messenger_curves.png" alt="Messenger Results">
+        <h2 class="section-header">HomeGrid: Language Hints</h2>
+        <div class="paragraph">
+        We introduce HomeGrid, a new environment where agents receive language hints in addition to instructions that describe parts of the environment that .
+        - dynalang learns to ground even without explicit paired signal, just because it helps future prediction
+        - dynalang outperforms
+        </div>
 
-      <h2 class="section-header">Habitat: Instruction Following</h2>
-      <img class="sm-img" src="static/images/vln.png" alt="Vision-Language Navigation Results">
+        <img class="wide-img" src="static/images/homegrid_bars.png" alt="HomeGrid Results">
+        <p class="caption">Dynalang learns to use all types of language to achieve higher task performance, and particularly excels at using language hints which are otherwise difficult to ground to the environment.</p>
+        <div class="videos">
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/homegrid_future.mp4" type="video/mp4">
+          </video>
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/homegrid_corrections.mp4" type="video/mp4">
+          </video>
+          <video muted autoplay controls playsinline loop>
+           <source id="mp4" src="data/videos/homegrid_dyn.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="row">
+          <p>
+        </div>
 
-      <h2 class="section-header">LangRoom: Grounded Language Generation</h2>
-      <img class="sm-img" src="static/images/langroom.png" alt="LangRoom Results">
+        <h2 class="section-header">Messenger: Game Manuals</h2>
+        <img class="wide-img" style="width: 75%" src="static/images/messenger_curves.png" alt="Messenger Results">
+        <div class="videos">
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/s30.mp4" type="video/mp4">
+          </video>
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/s31.mp4" type="video/mp4">
+          </video>
+        </div>
 
-      <div class="citation add-top-padding">
-        <h1 id="abstract"> Citation </h1>
-        <pre id="codecell0">@article{lin2023dynalang,
-        &nbsp;author = {Lin, Jessy and Du, Yuqing and Watkins, Olivia and Hafner, Danijar and Abbeel, Pieter and Klein, Dan and Dragan, Anca},
-        &nbsp;title = {Learning to Model the World with Language},
-        &nbsp;booktitle = {arXiv preprint TODO},
-        &nbsp;year = {2023},
-        } </pre>
+        <h2 class="section-header">Habitat: Instruction Following</h2>
+        <img class="sm-img" src="static/images/vln.png" alt="Vision-Language Navigation Results">
+        <div class="videos">
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/vln1.mp4" type="video/mp4">
+          </video>
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/vln0.mp4" type="video/mp4">
+          </video>
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/vln2.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <h2 class="section-header">LangRoom: Grounded Language Generation</h2>
+        <img class="sm-img" src="static/images/langroom.png" alt="LangRoom Results">
+
+        <div class="citation add-top-padding">
+          <h1 id="abstract"> Citation </h1>
+          <pre id="codecell0">@article{lin2023dynalang,
+          &nbsp;author = {Lin, Jessy and Du, Yuqing and Watkins, Olivia and Hafner, Danijar and Abbeel, Pieter and Klein, Dan and Dragan, Anca},
+          &nbsp;title = {Learning to Model the World with Language},
+          &nbsp;booktitle = {arXiv preprint TODO},
+          &nbsp;year = {2023},
+          } </pre>
+        </div>
       </div>
 
     </div>
