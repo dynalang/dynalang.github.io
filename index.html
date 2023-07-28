@@ -53,41 +53,41 @@
       <div class="title-row">
         <h1 class="title">Learning to Model the World with Language<h1>
       </div>
-      <div class="base-row author-row">
-        <div class="base-col author-col">
+      <div class="row">
+        <div class="author-col">
           <a href="https://www.jessylin.com/" target="_blank" class="author-text">
             Jessy Lin
           </a>
         </div>
-        <div class="base-col author-col">
+        <div class="author-col">
           <a href="https://www.yuqingd.github.io/" target="_blank" class="author-text">
             Yuqing Du
           </a>
         </div>
-        <div class="base-col author-col">
+        <div class="author-col">
           <a href="https://aliengirlliv.github.io/oliviawatkins/" target="_blank" class="author-text">
             Olivia Watkins
           </a>
         </div>
-        <div class="base-col author-col">
+        <div class="author-col">
           <a href="https://danijar.com/" target="_blank" class="author-text">
             Danijar Hafner
             <span class="superscript"></span>
           </a>
         </div>
       </div>
-      <div class="base-row author-row">
-        <div class="base-col author-col">
+      <div class="row">
+        <div class="author-col">
           <a href="https://people.eecs.berkeley.edu/~pabbeel/" target="_blank" class="author-text">
             Pieter Abbeel
           </a>
         </div>
-        <div class="base-col author-col">
+        <div class="author-col">
           <a href="https://people.eecs.berkeley.edu/~klein/" target="_blank" class="author-text">
             Dan Klein
           </a>
         </div>
-        <div class="base-col author-col">
+        <div class="author-col">
           <a href="https://people.eecs.berkeley.edu/~anca/" target="_blank" class="author-text">
             Anca Dragan
           </a>
@@ -95,34 +95,16 @@
       </div>
 
       </div>
-      <div>
-        <h1 id="uc-berkeley">UC Berkeley</h1>
-      </div>
+      <p id="uc-berkeley">UC Berkeley</h1>
 
-      <div class="link-labels base-row">
-        <div class="base-col icon-col"><a href="https://arxiv.org/abs/2303.12789" target="_blank" class="link-block"><img
-              src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
-              alt="paper"
-              sizes="(max-width: 479px) 12vw, (max-width: 767px) 7vw, (max-width: 991px) 41.8515625px, 56.6953125px"
-              srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png 500w, https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png 672w"
-              class="icon-img" /></a></div>
-        <div class="base-col icon-col"><a href="https://github.com/jlin816/dynalang" class="link-block"><img
-              src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
-              alt="paper" class="icon-img github-img-icon" /></a></div>
+      <div class="row">
+        <a class="link-button" href="https://arxiv.org/abs/2303.12789" target="_blank" class="link-block">Paper</a>
+        <a class="link-button" href="https://github.com/jlin816/dynalang" class="link-block">Code</a>
       </div>
-      <div class="link-labels base-row">
-        <div class="base-col icon-col">
-          <strong class="link-labels-text">Paper</strong>
-        </div>
-        <div class="base-col icon-col">
-          <strong class="link-labels-text">&lt;/Code&gt;</strong>
-        </div>
-      </div>
-
-      <h1 class="tldr">
+      <p class="tldr">
         <b>TL;DR</b>:
         Dynalang learns from diverse types of language beyond instructions to solve tasks by learning a world model with language.
-      </h1>
+      </p>
       <video id="main-video" muted autoplay controls playsinline loop>
         <source id="mp4" src="data/videos/teaser.mp4" type="video/mp4">
       </video>
@@ -135,154 +117,48 @@
       </div>
 
       <h2 class="section-header">How it works</h2>
-      <div class="paragraph">
-        <p>
-          Our method gradually updates a reconstructed NeRF scene by iteratively updating the dataset images while
-          training the NeRF:
-        <ol>
-          <li>An image is rendered from the scene at a training viewpoint.</li>
-          <li>It is edited by InstructPix2Pix given a global text instruction.</li>
-          <li>The training dataset image is replaced with the edited image.</li>
-          <li>The NeRF continues training as usual.</li>
-        </ol>
-        </p>
-      </div>
-      <video id="main-video" muted autoplay playsinline loop>
-        <source id="mp4" src="data/videos/pipeline_animation.mp4" type="video/mp4">
-      </video>
-
-      <video id="main-video" muted autoplay playsinline loop>
-        <source id="mp4" src="data/videos/du_update.mp4" type="video/mp4">
-      </video>
-      <div class="paragraph" style="text-align: center">
-        Example updates to the training dataset images over time. Notice that the edits are gradually becoming more
-        consistent.
-      </div>
-
-      <h2 class="section-header">Results</h2>
-
-      <video id="farm-video" muted autoplay webkit-playsinline playsinline loop>
-        <source id="farm-video-src" src="data/videos/farm/farm-original.mp4" poster="/data/test.jpg" type="video/mp4">
-      </video>
-      <div class="video-text">
-        <span class="overlay-text" id="farm-text">"Make it look like autumn"</span>
-      </div>
-      <div class="base-row farm-thumbnail-row">
-        <div class="base-col farm-thumbnail-col">
-          <button class="thumbnail-btn" id="original">
-            <img src="data/icons/icons_reset-big.svg" alt="paper" class="thumbnails" />
-            Original
-          </button>
+      <div>
+        <img class="wide-img" src="static/images/model.png" alt="Dynalang Model Architecture">
+        <div class="paragraph" style="text-align: center">
+          Example updates to the training dataset images over time. Notice that the edits are gradually becoming more
+          consistent.
         </div>
-        <div class="base-col farm-thumbnail-col">
-          <button class="thumbnail-btn" id="autumn">
-            <img src="data/icons/icons_autumn.svg" alt="paper" class="thumbnails" />
-            Autumn
-          </button>
-        </div>
-        <div class="base-col farm-thumbnail-col">
-          <button class="thumbnail-btn" id="desert-sand">
-            <img src="data/icons/icons_desert.svg" alt="paper" class="thumbnails" />
-            Desert
-          </button>
-        </div>
-        <div class="base-col farm-thumbnail-col">
-          <button class="thumbnail-btn" id="midnight">
-            <img src="data/icons/icons_midnight.svg" alt="paper" class="thumbnails" />
-            Midnight
-          </button>
-        </div>
-        <div class="base-col farm-thumbnail-col">
-          <button class="thumbnail-btn" id="snow">
-            <img src="data/icons/icons_snow.svg" alt="paper" class="thumbnails" />
-            Snow
-          </button>
-        </div>
-        <div class="base-col farm-thumbnail-col">
-          <button class="thumbnail-btn" id="storm">
-            <img src="data/icons/icons_storm.svg" alt="paper" class="thumbnails" />
-            Storm
-          </button>
-        </div>
-        <div class="base-col farm-thumbnail-col">
-          <button class="thumbnail-btn" id="sunset">
-            <img src="data/icons/icons_sunset.svg" alt="paper" class="thumbnails" />
-            Sunset
-          </button>
+        <div class="paragraph">
+          <p>
+            Our method gradually updates a reconstructed NeRF scene by iteratively updating the dataset images while
+            training the NeRF:
+          <ol>
+            <li>An image is rendered from the scene at a training viewpoint.</li>
+            <li>It is edited by InstructPix2Pix given a global text instruction.</li>
+            <li>The training dataset image is replaced with the edited image.</li>
+            <li>The NeRF continues training as usual.</li>
+          </ol>
+          </p>
         </div>
       </div>
 
-      <video id="bear-video" autobuffer muted autoplay webkit-playsinline playsinline loop>
-        <source id="bear-video-src" src="data/videos/bear/bear-original.mp4" type="video/mp4">
-      </video>
-      <div class="video-text">
-        <span class="overlay-text" id="bear-text">"Make it look like autumn"</span>
-      </div>
-      <div class="bear-thumbnail-row">
-        <div class="base-col bear-thumbnail-col">
-          <button class="thumbnail-btn" id="original-bear">
-            <img src="data/icons/icons_reset-small.svg" alt="paper" class="thumbnails" />
-            Original
-          </button>
-        </div>
-        <div class="base-col bear-thumbnail-col">
-          <button class="thumbnail-btn" id="grizzly">
-            <img src="data/icons/icons_grizzly.svg" alt="paper" class="thumbnails" />
-            Grizzly Bear
-          </button>
-        </div>
-        <div class="base-col bear-thumbnail-col">
-          <button class="thumbnail-btn" id="panda">
-            <img src="data/icons/icons_panda.svg" alt="paper" class="thumbnails" />
-            Panda Bear
-          </button>
-        </div>
-        <div class="base-col bear-thumbnail-col">
-          <button class="thumbnail-btn" id="polar">
-            <img src="data/icons/icons_polar.svg" alt="paper" class="thumbnails" />
-            Polar Bear
-          </button>
-        </div>
-      </div>
+      <h2 class="section-header">HomeGrid: Language Hints</h2>
+      <img class="wide-img" src="static/images/homegrid_bars.png" alt="HomeGrid Results">
 
-      <video id="body-video" autobuffer muted autoplay webkit-playsinline playsinline loop>
-        <source id="mp4" src="data/videos/body_transform.mp4" type="video/mp4">
-      </video>
+      <h2 class="section-header">Messenger: Game Manuals</h2>
+      <img class="wide-img" src="static/images/messenger_curves.png" alt="Messenger Results">
 
-      <video id="body-video" muted autoplay playsinline loop>
-        <source id="mp4" src="data/videos/fangzhou.mp4" type="video/mp4">
-      </video>
+      <h2 class="section-header">Habitat: Instruction Following</h2>
+      <img class="sm-img" src="static/images/vln.png" alt="Vision-Language Navigation Results">
 
-
-      <h2 class="section-header">Training Progression</h2>
-      <video id="body-video" muted autoplay playsinline controls loop>
-        <source id="mp4" src="data/videos/evolve_comb.mp4" type="video/mp4">
-      </video>
-
-      <!-- <div class="base-row add-top-padding">
-        <img src="data/nerfstudio_logo.png" alt="Nerfstudio" style="height: 5em; margin-top:2em" />
-        <h1 id="abstract">
-          <a id="coming_soon">Integration Coming Soon...</a>
-        </h1>
-      </div> -->
+      <h2 class="section-header">LangRoom: Grounded Language Generation</h2>
+      <img class="sm-img" src="static/images/langroom.png" alt="LangRoom Results">
 
       <div class="citation add-top-padding">
         <h1 id="abstract"> Citation </h1>
-        <p> If you use this work or find it helpful, please consider citing: (bibtex) </p>
-        <pre id="codecell0">@article{instructnerf2023,
-        &nbsp;author = {Haque, Ayaan and Tancik, Matthew and Efros, Alexei and Holynski, Aleksander and Kanazawa, Angjoo},
-        &nbsp;title = {Instruct-NeRF2NeRF: Editing 3D Scenes with Instructions},
-        &nbsp;booktitle = {arXiv preprint 2303.12789},
+        <pre id="codecell0">@article{lin2023dynalang,
+        &nbsp;author = {Lin, Jessy and Du, Yuqing and Watkins, Olivia and Hafner, Danijar and Abbeel, Pieter and Klein, Dan and Dragan, Anca},
+        &nbsp;title = {Learning to Model the World with Language},
+        &nbsp;booktitle = {arXiv preprint TODO},
         &nbsp;year = {2023},
         } </pre>
       </div>
 
-      <h2 class="section-header">Acknowledgments</h2>
-      <div class="paragraph">
-        We thank our colleagues for their insightful feedback helpful discussions, in particular Ethan Weber, Frederik
-        Warburg, Ben Poole, Richard Szeliski, Jon Barron, Alexander Kristoffersen, Rohan Mathur, Alejandro Escontrela,
-        and the Nerfstudio team.
-      </div>
     </div>
   </div>
 </body>
