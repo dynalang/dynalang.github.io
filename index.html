@@ -163,7 +163,7 @@
         <div class="paragraph">
         We evaluate on the Messenger game environment to test how agents learn from longer and more complex text that requires multi-hop reasoning over text and visual observations. Agents must reason over text manuals describing the dynamics of each episode and combine them with observations of the entities in the environment to determine which entities to get messages from and which to avoid. Dynalang outperforms IMPALA and R2D2, as well as the task-specific EMMA baseline that uses a specialized architecture to reason over text and observations, particularly on the most difficult Stage 3.
         </div>
-        <img class="wide-img" style="width: 75%" src="static/images/messenger_curves.png" alt="Messenger Results">
+        <img class="med-img" src="static/images/messenger_curves.png" alt="Messenger Results">
         <div class="videos">
           <div>
           <video muted autoplay controls playsinline loop>
@@ -218,9 +218,9 @@
 
         <h2 class="section-header">Text Pretraining</h2>
         <div class="paragraph">
-          Because world modeling with language is decoupled from learning to act with a world model, Dynalang can be pretrained with offline data without action or reward labels. This capability provides a way for Dynalang to benefit from large-scale offline datasets, all within a single model architecture. We pretrain Dynalang with text-only data, learning token embeddings from scratch. Pretraining the model on general text data (TinyStories, 2M short stories) improves downstream RL task performance on Messenger compared to using pretrained embeddings.
+          Because world modeling with language is decoupled from learning to act with a world model, Dynalang can be pretrained with offline data without action or reward labels. This capability provides a way for Dynalang to benefit from large-scale offline datasets, all within a single model architecture. We pretrain Dynalang with text-only data, learning token embeddings from scratch. Pretraining the model on general text data (TinyStories, 2M short stories) improves downstream RL task performance on Messenger beyond using pretrained T5 embeddings.
         </div>
-        <img class="wide-img" src="static/images/text_pretrain_all.png" alt="Text Pretraining Results" style="width: 60%">
+        <img class="med-img" src="static/images/text_pretrain_all.png" alt="Text Pretraining Results">
         <div class="paragraph">We can generate text from the world model like a language model by sampling rollouts in latent space and decoding the token observation from the representation at each timestep. We find that the model generations are surprisingly coherent, despite not being trained explicitly with the language modeling objective.</div>
         <div id="text-samples">
           <div class="text-sample">

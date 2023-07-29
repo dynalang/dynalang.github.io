@@ -180,11 +180,15 @@ body {
     margin: 0rem auto 1rem auto;
     display: block;
 }
+.med-img {
+    width: 70%;
+    display: block;
+    margin: 0rem auto 1rem auto;
+}
 .sm-img {
     object-fit: contain;
     width: 25%;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
+    margin: 0rem auto 1rem auto;
 }
 
 .caption {
@@ -235,7 +239,7 @@ body {
 }
 
 .text-sample {
-  max-width: 50%;
+  width: 50%;
   border: 4px solid #e69138;
   border-radius: 5px;
   padding: 1rem;
@@ -383,12 +387,18 @@ body {
         font-size: 16px;
     }
 
-    .author-row {
-        height: 35px;
+    .row {
+        justify-content: space-evenly;
+        margin: .2rem;
+    }
+
+    .author-col {
+      font-size: .8rem;
+      margin: 0rem .5rem;
     }
 
     #uc-berkeley {
-        font-size: 12px;
+        font-size: .8rem;
     }
 
     .thumbnail-btn {
@@ -417,5 +427,31 @@ body {
     }
     .videos video {
         width: 100%;
+    }
+
+    .img-by-text {
+      flex-direction: column;
+    }
+    .img-by-text img {
+      width: 60%;
+      margin: auto;
+      padding: 0rem;
+    }
+    .img-by-text div {
+      width: 100%;
+      padding: 1rem 0rem;
+      margin: auto;
+    }
+
+    .med-img {
+      width: 100%;
+    }
+
+    #text-samples {
+      flex-direction: column;
+    }
+    .text-sample {
+      width: 90%;
+      margin: auto;
     }
 }
