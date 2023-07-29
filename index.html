@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="Instruct-NeRF2NeRF enables editing of a NeRF scene with a simple text instruction."
+  <meta content="Dynalang leverages diverse types of language to solve tasks by using language to predict the future in a multimodal world model."
     name="description" />
-  <meta content="Instruct-NeRF2NeRF: Editing 3D Scenes with Instructions" property="og:title" />
-  <meta content="Instruct-NeRF2NeRF enables editing of a NeRF scene with a simple text instruction."
+  <meta content="Dynalang: Learning to Model the World with Language" property="og:title" />
+  <meta content="Dynalang leverages diverse types of language to solve tasks by using language to predict the future in a multimodal world model."
     property="og:description" />
   <meta content="https://instruct-nerf2nerf.github.io/data/open_graph.png" property="og:image" />
   <meta content="Learning to Model the World with Language" property="twitter:title" />
@@ -35,15 +35,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Source+Sans+3&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Source+Sans+3&display=swap">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src="script.js" type="text/javascript"></script>
-
   <link href="style.css" rel="stylesheet" type="text/css" />
-
-  <link href="data/icons/wand_black.svg" rel="icon" media="(prefers-color-scheme: light)" />
-  <link href="data/icons/wand_white.svg" rel="icon" media="(prefers-color-scheme: dark)" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -104,7 +96,7 @@
       </div>
       <p class="tldr">
         <b>TL;DR</b>:
-        Dynalang learns from diverse types of language beyond instructions to solve tasks by learning a world model with language.
+        Dynalang leverages diverse types of language to solve tasks by using language to predict the future in a multimodal world model.
       </p>
       <video id="main-video" muted autoplay controls playsinline loop>
         <source id="mp4" src="data/videos/teaser.mp4" type="video/mp4">
@@ -125,8 +117,8 @@
           </div>
           <img class="wide-img" src="static/images/model.png" alt="Dynalang Model Architecture">
           <div class="paragraph">
-            (a) The world model compresses the text and image at each timestep to a latent representation. From the representation, the model is trained to reconstruct the original observations, predict rewards, and predict the representation at the next timestep.
-            Intuitively, the world model learns <i>what it should expect to see in the world</i> given what it reads in text. (b)The policy operates on top of the compressed world model representations. It is trained on imagined rollouts from the world model and learns to take actions that maximize predicted returns.
+            (left) The world model compresses the text and image at each timestep to a latent representation. From the representation, the model is trained to reconstruct the original observations, predict rewards, and predict the representation at the next timestep.
+            Intuitively, the world model learns <i>what it should expect to see in the world</i> given what it reads in text. (right) The policy operates on top of the compressed world model representations. It is trained on imagined rollouts from the world model and learns to take actions that maximize predicted returns.
           </div>
         </div>
 
