@@ -3,13 +3,12 @@ body {
     min-height: 100%;
     background-color: ##fdfdfd;
     font-family: 'Source Sans 3',sans-serif;
-    color: #333;
-    font-size: 12px;
+    color: #000;
+    font-size: 16px;
     line-height: 20px;
 }
 
 .section {
-    text-align: center;
     width: 60%;
     margin: auto;
 }
@@ -22,14 +21,14 @@ body {
 }
 
 .title {
+    text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
     font-family: 'Asap',sans-serif;
-    color: #4d4d4d;
+    color: #000;
     font-size: 40px;
-    line-height: 65px;
+    line-height: 40px;
     font-weight: 700;
-//    letter-spacing: 4;
 }
 
 .subheader {
@@ -49,10 +48,10 @@ body {
 }
 
 .section-header {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
     font-family: 'Asap',sans-serif;
-    color: #4d4d4d;
+    color: #000;
     font-size: 30px;
     line-height: 65px;
     font-weight: 700;
@@ -102,6 +101,7 @@ body {
 }
 
 #uc-berkeley {
+    text-align: center;
     font-family: 'Source Sans 3',sans-serif;
     color: #333;
     font-size: 16px;
@@ -218,55 +218,15 @@ body {
     text-align: center;
 }
 
-.thumbnails {
-    width: 60%;
-    overflow: hidden;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+.img-by-text {
+  display: flex;
 }
 
-.thumbnail-btn {
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background-color: #fff;
-    padding-bottom: 8px;
-    border-radius: 10px;
+.img-by-text > img {
+  width: 25%;
 }
-
-.thumbnail-btn:hover   {
-    background-color: #eaeaea;
-}
-
-.active-btn   {
-    background-color: #d9e8ec;
-}
-
-.farm-thumbnail-row {
-    display: inline-block;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-}
-
-.farm-thumbnail-col {
-    width: 14%;
-}
-
-.bear-thumbnail-row {
-    display: inline-block;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-}
-
-.bear-thumbnail-col {
-    width: 25%;
+.img-by-text > div {
+  width: 75%;
 }
 
 :root {
@@ -381,10 +341,15 @@ body {
 }
 
 @media screen and (max-width: 750px) {
+    body {
+      margin: 50px 0px;
+    }
+    .section {
+      width: 90%;
+    }
     .title {
-        background-color: red;
-        font-size: 24px;
-        line-height: 20px;
+        font-size: 30px;
+        line-height: 30px;
     }
 
     .subheader {
@@ -417,12 +382,14 @@ body {
     .section-header {
         font-size: 20px;
         line-height: 20px;
+    }
 
     .videos {
         flex-direction: column;
+        align-items: center;
     }
     .videos > video {
-        width: 100%;
-        max-width: 100%;
+        width: 70%;
+        max-width: 70%;
     }
 }

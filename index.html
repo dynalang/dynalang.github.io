@@ -120,21 +120,8 @@
         <h2 class="section-header">How It Works</h2>
         <div>
           <img class="wide-img" src="static/images/model.png" alt="Dynalang Model Architecture">
-          <div class="paragraph" style="text-align: center">
-            Example updates to the training dataset images over time. Notice that the edits are gradually becoming more
-            consistent.
-          </div>
           <div class="paragraph">
-            <p>
-              Our method gradually updates a reconstructed NeRF scene by iteratively updating the dataset images while
-              training the NeRF:
-            <ol>
-              <li>An image is rendered from the scene at a training viewpoint.</li>
-              <li>It is edited by InstructPix2Pix given a global text instruction.</li>
-              <li>The training dataset image is replaced with the edited image.</li>
-              <li>The NeRF continues training as usual.</li>
-            </ol>
-            </p>
+            TODO
           </div>
         </div>
 
@@ -174,7 +161,10 @@
         </div>
 
         <h2 class="section-header">Habitat: Instruction Following</h2>
-        <img class="sm-img" src="static/images/vln.png" alt="Vision-Language Navigation Results">
+        <div class="img-by-text">
+          <img class="sm-img" src="static/images/vln.png" alt="Vision-Language Navigation Results">
+          <div>Hello this is a test testset awe jljawe laekjalj lawef kjawf </div>
+        </div>
         <div class="videos">
           <video muted autoplay controls playsinline loop>
             <source id="mp4" src="data/videos/vln1.mp4" type="video/mp4">
@@ -188,7 +178,14 @@
         </div>
 
         <h2 class="section-header">LangRoom: Grounded Language Generation</h2>
-        <img class="sm-img" src="static/images/langroom.png" alt="LangRoom Results">
+        <div class="img-by-text">
+          <img class="sm-img" src="static/images/langroom.png" alt="LangRoom Results">
+          <div>Hello this is a test testset awe jljawe laekjalj lawef kjawf </div>
+        </div>
+
+        <h2 class="section-header">Text Pretraining</h2>
+        <img class="sm-img" src="static/images/text_pretrain_all.png" alt="LangRoom Results">
+
 
         <div class="citation add-top-padding">
           <h1 id="abstract"> Citation </h1>
