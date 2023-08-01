@@ -23,8 +23,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Source+Sans+3&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Source+Sans+3&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Source+Sans+3:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asap:wght@700&family=Source+Sans+3:wght@400;700&display=swap">
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -47,6 +47,7 @@
             Yuqing Du
           </a>
         </div>
+        <div class="invisible"><br></div>
         <div class="author-col">
           <a href="https://aliengirlliv.github.io/oliviawatkins/" target="_blank" class="author-text">
             Olivia Watkins
@@ -81,7 +82,7 @@
       <p id="uc-berkeley">UC Berkeley</h1>
 
       <div class="row">
-        <a class="link-button" href="TODO" target="_blank" class="link-block">Paper</a>
+        <a class="link-button" href="data/dynalang.pdf" target="_blank" class="link-block">Paper</a>
         <a class="link-button" href="https://github.com/jlin816/dynalang" class="link-block">Code</a>
       </div>
       <p class="tldr">
@@ -96,8 +97,14 @@
         <h2 class="section-header">Overview</h2>
         <div class="paragraph">
           <p>
-          To interact with humans and act in the world, agents need to understand the range of language that people use and relate it to the visual world. While current agents learn to execute simple language instructions from task rewards, we aim to build agents that leverage diverse language that conveys general knowledge, describes the state of the world, provides interactive feedback, and more. Our key idea is that <i>language helps agents predict the future</i>: what will be observed, how the world will behave, and which situations will be rewarded. This perspective unifies language understanding with future prediction as a powerful self-supervised learning objective. We present Dynalang, an agent that learns a multimodal world model that predicts future text and image representations and learns to act from imagined model rollouts. Unlike traditional agents that use language only to predict actions, Dynalang acquires rich language understanding by using past language also to predict future language, video, and rewards. In addition to learning from online interaction in an environment, Dynalang can be pretrained on datasets of text, video, or both without actions or rewards. From using language hints in grid worlds to navigating photorealistic scans of homes, Dynalang utilizes diverse types of language to improve task performance, including environment descriptions, game rules, and instructions.
+          To interact with humans and act in the world, agents need to understand the range of language that people use and relate it to the visual world. While current agents learn to execute simple language instructions from task rewards, we aim to build agents that leverage diverse language that conveys general knowledge, describes the state of the world, provides interactive feedback, and more. Our key idea is that <b>language helps agents predict the future</b>: what will be observed, how the world will behave, and which situations will be rewarded. This perspective unifies language understanding with future prediction as a powerful self-supervised learning objective. We present Dynalang, an agent that learns a multimodal world model that predicts future text and image representations and learns to act from imagined model rollouts. Unlike traditional agents that use language only to predict actions, Dynalang acquires rich language understanding by using past language also to predict future language, video, and rewards. In addition to learning from online interaction in an environment, Dynalang can be pretrained on datasets of text, video, or both without actions or rewards. From using language hints in grid worlds to navigating photorealistic scans of homes, Dynalang utilizes diverse types of language to improve task performance, including environment descriptions, game rules, and instructions.
           </p>
+          <p><b>Contributions:</b></p>
+          <ul>
+            <li>We propose Dynalang, an agent that grounds language to visual experience via future prediction.
+            <li>We demonstrate that Dynalang learns to understand diverse kinds of language to solve a broad range of tasks, often outperforming state-of-the-art RL algorithms and task-specific architectures.
+            <li>We show that the Dynalang formulation enables additional capabilities: language generation can be unified in the same model, as well as text-only pretraining without actions or task rewards.
+          </ul>
         </div>
 
         <h2 class="section-header">How It Works</h2>
@@ -108,7 +115,7 @@
           <img class="wide-img" src="static/images/model.png" alt="Dynalang Model Architecture">
           <div class="paragraph">
             (left) The world model compresses the text and image at each timestep to a latent representation. From the representation, the model is trained to reconstruct the original observations, predict rewards, and predict the representation at the next timestep.
-            Intuitively, the world model learns <i>what it should expect to see in the world</i> given what it reads in text. (right) The policy operates on top of the compressed world model representations. It is trained on imagined rollouts from the world model and learns to take actions that maximize predicted returns.
+            Intuitively, the world model learns <b>what it should expect to see in the world</b> given what it reads in text. (right) The policy operates on top of the compressed world model representations. It is trained on imagined rollouts from the world model and learns to take actions that maximize predicted returns.
           </div>
         </div>
 
@@ -116,11 +123,12 @@
         <div class="paragraph">
           We introduce HomeGrid to evaluate agents in an environment where they receive <i>language hints</i> in addition to task instructions. Hints in HomeGrid simulate knowledge that agents might learn from humans or read in text, providing information that is helpful but not required to solve tasks:
         <ul>
-          <li><i>Future Observations</i> describe what agents might observe in the future, e.g, "The plates are in the kitchen."</li>
-          <li><i>Corrections</i> provide interactive feedback based on what the agent is doing, e.g, "Turn around."</li>
-          <li><i>Dynamics</i> describe the dynamics of the environment, e.g, "Pedal to open the compost bin."</li>
+          <li><b>Future Observations</b> describe what agents might observe in the future, such as "The plates are in the kitchen."</li>
+          <li><b>Corrections</b> provide interactive feedback based on what the agent is doing, such as "Turn around."</li>
+          <li><b>Dynamics</b> describe the dynamics of the environment, such as "Pedal to open the compost bin."</li>
         </ul>
         </div>
+        <div class="paragraph">The HomeGrid environment will be released with the code to encourage further work in this direction.</div>
 
         <div class="videos">
           <div>
@@ -165,6 +173,12 @@
             <source id="mp4" src="data/videos/s31.mp4" type="video/mp4">
           </video>
           </div>
+          <div>
+          <video muted autoplay controls playsinline loop>
+            <source id="mp4" src="data/videos/s32.mp4" type="video/mp4">
+          </video>
+
+          </div>
         </div>
 
         <h2 class="section-header">Instruction Following in Habitat</h2>
@@ -194,7 +208,7 @@
 
         <h2 class="section-header">Grounded Language Generation in LangRoom</h2>
         <div class="paragraph">
-          Just like language can affect agents' predictions of what they will see, what an agent observes can also affect what language it expects to hear (e.g. true statements about what it has seen). By outputting language in the action space in LangRoom, we show that Dynalang can <i>generate</i> language grounded in environment to perform embodied question answering.
+          Just like language can affect agents' predictions of what they will see, what an agent observes can also affect what language it expects to hear (e.g., true statements about what it has seen). By outputting language in the action space in LangRoom, we show that Dynalang can <i>generate</i> language grounded in environment to perform embodied question answering.
         </div>
         <div class="img-by-text">
           <img class="sm-img" src="static/images/langroom.png" alt="LangRoom Results">
@@ -211,45 +225,51 @@
           Because world modeling with language is decoupled from learning to act with a world model, Dynalang can be pretrained with offline data without action or reward labels. This capability provides a way for Dynalang to benefit from large-scale offline datasets, all within a single model architecture. We pretrain Dynalang with text-only data, learning token embeddings from scratch. Pretraining the model on general text data (TinyStories, 2M short stories) improves downstream RL task performance on Messenger beyond using pretrained T5 embeddings.
         </div>
         <img class="med-img" src="static/images/text_pretrain_all.png" alt="Text Pretraining Results">
-        <div class="paragraph">We can generate text from the world model like a language model by sampling rollouts in latent space and decoding the token observation from the representation at each timestep. We find that the model generations are surprisingly coherent, despite not being trained explicitly with the language modeling objective.</div>
+        <div class="paragraph">Although our work focuses on language understanding for acting in world, we can generate text from the world model like a text-only language model. We sample rollouts from the pretrained TinyStories model in latent space and decode the token observation from the representation at each timestep. Model generations are surprisingly coherent, although still below the quality of modern language models. We see unifying language generation and acting in a single agent architecture as an exciting avenue for future work.</div>
         <div id="text-samples">
           <div class="text-sample">
-            <div class="prompt"><span class="label">Prompt:</span> One day, a young boy named Tim found a dull, round rock. He picked it up and looked at it. He thought it was not very fun, but he took it with him to the park. At the park, Tim</div>
-            <div class="true"><span class="label">True:</span> saw a girl named Sue. She had</div>
-            <br>
-            <div class="label">Samples:</div>
+            <div class="label">Prompt</div>
+            <div class="prompt bubble"> One day, a young boy named Tim found a dull, round rock. He picked it up and looked at it. He thought it was not very fun, but he took it with him to the park. At the park, Tim</div>
+            <div class="label">True</div>
+            <div class="true bubble"> saw a girl named Sue. She had</div>
+            <div class="label">Model Samples</div>
             <ul class="samples">
-              <li>he met. favorite friend He put it his to</li>
-              <li>met a girl named Sue. Sue saw the ball</li>
-              <li>saw a stick top Sam. He kept playing with</li>
-              <li>played with his friends and but they friends!"</s> Li</li>
-              <li>met a girl named Lily.&lt;/s&gt; ly saw</li>
+              <li class="bubble">he met. favorite friend He put it his to</li>
+              <li class="bubble">met a girl named Sue. Sue saw the ball</li>
+              <li class="bubble">saw a stick top Sam. He kept playing with</li>
+              <li class="bubble">played with his friends and but they friends!"</s> Li</li>
+              <li class="bubble">met a girl named Lily.&lt;/s&gt; ly saw</li>
             </ul>
           </div>
           <div class="text-sample">
-            <div class="prompt"><span class="label">Prompt:</span> Once upon a time, there was a little boy named Tom. Tom had a special belt that he loved to wear. One day, he could not find his belt and felt very sad. Tom's mom saw him and</div>
-            <div class="true"><span class="label">True:</span> asked, "Why are you sad, Tom?"</div>
-            <br>
-            <div class="label">Samples:</div>
+            <div class="label">Prompt</div>
+            <div class="prompt bubble">Once upon a time, there was a little boy named Tom. Tom had a special belt that he loved to wear. One day, he could not find his belt and felt very sad. Tom's mom saw him and</div>
+            <div class="label">True</div>
+            <div class="true bubble"> asked, "Why are you sad, Tom?"</div>
+            <div class="label">Model Samples</div>
             <ul class="samples">
-              <li>frustrated and asked him what was rude.</s> Once upon</li>
-              <li>asked, "Why are you sad, Tom?"&lt;/s&gt;</li>
-              <li>asked, "Howeny, I did, get</li>
-              <li>said, "Don't worry, Tom. We</li>
-              <li>said, "To tree, you look be  in</li>
+              <li class="bubble">frustrated and asked him what was rude.</s> Once upon</li>
+              <li class="bubble">asked, "Why are you sad, Tom?"&lt;/s&gt;</li>
+              <li class="bubble">asked, "Howeny, I did, get</li>
+              <li class="bubble">said, "Don't worry, Tom. We</li>
+              <li class="bubble">said, "To tree, you look be  in</li>
             </ul>
           </div>
-
         </div>
 
-
+        <h2 class="section-header">Citation</h2>
+        <div class="paragraph-center">For more information, check out the paper and code:</div>
+        <div class="row">
+          <a class="link-button" href="data/dynalang.pdf" target="_blank" class="link-block">Paper</a>
+          <a class="link-button" href="https://github.com/jlin816/dynalang" class="link-block">Code</a>
+        </div>
         <div class="citation">
           <pre id="codecell0">@article{lin2023dynalang,
-          &nbsp;author = {Lin, Jessy and Du, Yuqing and Watkins, Olivia and Hafner, Danijar and Abbeel, Pieter and Klein, Dan and Dragan, Anca},
-          &nbsp;title = {Learning to Model the World with Language},
-          &nbsp;booktitle = {arXiv preprint TODO},
-          &nbsp;year = {2023},
-          } </pre>
+         author = {Lin, Jessy and Du, Yuqing and Watkins, Olivia and Hafner, Danijar and Abbeel, Pieter and Klein, Dan and Dragan, Anca},
+         title = {Learning to Model the World with Language},
+         note = {Preprint},
+         year = {2023},
+}</pre>
         </div>
       </div>
 
