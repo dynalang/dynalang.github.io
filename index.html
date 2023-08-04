@@ -93,7 +93,7 @@
       </div>
       <p class="tldr">
         <b>TL;DR</b>:
-        Dynalang leverages diverse types of language to solve tasks by using language to predict the future in a multimodal world model.
+        Dynalang leverages diverse types of language to solve tasks by using language to predict the future via a multimodal world model.
       </p>
       <video id="main-video" muted autoplay controls playsinline loop>
         <source id="mp4" src="data/videos/teaser.mp4" type="video/mp4">
@@ -116,12 +116,19 @@
         <h2 class="section-header">How It Works</h2>
         <div class="img-container">
           <div class="paragraph">
-          During online interaction, Dynalang is trained continuously from experience data the agent collects while acting in the environment. We treat language as an observation modality, inputting it into the world model along with image observations. Dynalang receives one token at each timestep, which matches how agents would receive streams of multimodal observations in the real world and enables the agent to take actions while reading text.
+          Using language to understand the world naturally fits into a world modeling paradigm. We build on DreamerV3, a model-based RL agent.
+          Dynalang learns continuously from experience data the agent collects while acting in an environment.
+          </div>
+          <div class="paragraph">
+          (left) The world model compresses the text and image at each timestep into a latent representation. From the representation, the model is trained to reconstruct the original observations, predict rewards, and predict the representation at the next timestep.
+          Intuitively, the world model learns <b>what it should expect to see in the world</b> given what it reads in text.
+          </div>
+          <div class="paragraph">
+          (right) Dynalang chooses actions by training a policy network on top of the compressed world model representations. It is trained on imagined rollouts from the world model and learns to take actions that maximize predicted rewards.
           </div>
           <img class="wide-img" src="static/images/model.png" alt="Dynalang Model Architecture">
           <div class="paragraph">
-            (left) The world model compresses the text and image at each timestep to a latent representation. From the representation, the model is trained to reconstruct the original observations, predict rewards, and predict the representation at the next timestep.
-            Intuitively, the world model learns <b>what it should expect to see in the world</b> given what it reads in text. (right) The policy operates on top of the compressed world model representations. It is trained on imagined rollouts from the world model and learns to take actions that maximize predicted returns.
+            Unlike previous multimodal models that consume text one sentence or paragraph at a time, we design Dynalang to model video and text as a unified sequence, consuming one image frame and one text token at a time. Intuitively, this is similar to how humans receive inputs in the real world—as a single multimodal stream, where listening to language takes time. Modeling everything as one sequence enables pretraining the model on text data like a language model and improves RL performance.
           </div>
         </div>
 
