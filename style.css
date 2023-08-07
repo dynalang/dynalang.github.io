@@ -417,4 +417,12 @@ li.bubble{
       width: 90%;
       margin: auto;
     }
+
+    .link-button {
+      margin: 1rem 0.25rem;
+    }
+
+    .button-row {
+      margin: 0.75rem 0rem;
+    }
 }
